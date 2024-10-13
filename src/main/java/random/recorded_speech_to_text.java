@@ -1,25 +1,25 @@
+package random;
+
 import com.microsoft.cognitiveservices.speech.*;
 import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
 
 
 import javax.sound.sampled.UnsupportedAudioFileException;
-import java.awt.desktop.UserSessionEvent;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.concurrent.ExecutionException;
 
 public class recorded_speech_to_text {
     private static final String speech_region = System.getenv("speech_Region");
     private static final String speech_key = System.getenv("speech_key");
-    public static String filePath ="C:\\Users\\cabdi\\Downloads\\recording (online-audio-converter.com).m4a";
+    public static String filePath ="C:\\Users\\cabdi\\Downloads\\recording (online-audio-random.converter.com).m4a";
 
 
 
     public static void main(String[] args) throws ExecutionException, InterruptedException, UnsupportedAudioFileException, IOException {
         System.out.println(speech_region);
         SpeechConfig speechConfig = SpeechConfig.fromSubscription(speech_key, speech_region);
-        //converter.setinputFile(filePath);
+        //random.converter.setinputFile(filePath);
         recognizeAudio(speechConfig);
 
     }
@@ -28,7 +28,7 @@ public class recorded_speech_to_text {
        // System.out.println(speech_key);
 
         speechConfig.setSpeechRecognitionLanguage("en-Us");
-       // System.out.println(converter.getOutputFileFile());
+       // System.out.println(random.converter.getOutputFileFile());
         File outputFile =  new File("C:\\Users\\cabdi\\Downloads\\new_recorded.WAV");
         System.out.println(outputFile);
         AudioConfig audioInput = AudioConfig.fromWavFileInput(AudioConverter.convertToWav(new File(filePath),outputFile));

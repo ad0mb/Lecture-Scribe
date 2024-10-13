@@ -40,6 +40,12 @@
             <version>0.3.7.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.jcodec</groupId>
+            <artifactId>jcodec</artifactId>
+            <version>0.2.5</version> <!-- Check for the latest version -->
+        </dependency>
+
 
     </dependencies>
 
