@@ -1,4 +1,4 @@
-package GoogleCalendar;
+package googlecalendar;
 
 
 import com.google.api.client.util.DateTime;
