@@ -3,13 +3,11 @@ package GPT.Setup;
 import com.azure.ai.openai.OpenAIClient;
 import com.azure.ai.openai.OpenAIClientBuilder;
 import com.azure.core.credential.AzureKeyCredential;
-import com.azure.core.credential.TokenCredential;
-import com.azure.identity.DefaultAzureCredentialBuilder;
 
 public class GPTSetup {
 
     private final String ENDPOINT_LINK;
-    private final String API_KEY = "136a237a1b794cd998f375c2e1655505";
+    private final String API_KEY = "--";
 
 
     public GPTSetup(String endpointLink) {
@@ -17,8 +15,7 @@ public class GPTSetup {
     }
 
     public OpenAIClient getService() {
-        //TokenCredential credential = new DefaultAzureCredentialBuilder().build();
-        return new OpenAIClientBuilder().endpoint(ENDPOINT_LINK).credential(new AzureKeyCredential(API_KEY)).buildClient();
+        OpenAIClient service = new OpenAIClientBuilder().endpoint("https://lecturescribegpt.openai.azure.com/").credential(new AzureKeyCredential(API_KEY)).buildClient();
+        return service;
     }
-
 }

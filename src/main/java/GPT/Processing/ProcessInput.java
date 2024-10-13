@@ -2,10 +2,8 @@ package GPT.Processing;
 
 import com.azure.ai.openai.OpenAIClient;
 import com.azure.ai.openai.models.*;
-import com.azure.core.util.Context;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class ProcessInput {
@@ -17,16 +15,15 @@ public class ProcessInput {
         this.service = service;
     }
 
-    public void transcriptInjection(String prompt) {
+    public String transcriptInjection(String prompt) {
         List<ChatRequestMessage> injectedPrompt = new ArrayList<>();
         injectedPrompt.add(new ChatRequestUserMessage(prompt));
         injectedPrompt.add(new ChatRequestSystemMessage(contextInstruction));
 
         ChatCompletions completions = service.getChatCompletions(GPT_TYPE, new ChatCompletionsOptions(injectedPrompt));
 
-        for (ChatChoice completion : completions.getChoices()) {
-            System.out.println(completion.getMessage().getContent());
-        }
+
+        return completions.getChoices().getFirst().getMessage().getContent();
     }
 
     private static final String contextInstruction =
